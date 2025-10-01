@@ -87,7 +87,33 @@ with sponsor approval.
   - Mozilla Developer Network (MDN) for HTML/CSS reference
   - Instructor feedback
 
-## 7. Risk Management
+## 7. Risk Analysis (TAME Framework)
+
+- **Technical Risks**
+  - Deployment errors with GitHub Pages.  
+    *Mitigation:* Test early with LiveServer/FiveServer; verify settings in Pages.  
+  - CSS layout challenges without JavaScript support.  
+    *Mitigation:* Research course-approved CSS techniques; simplify design.
+
+- **Assumptions Risks**
+  - Assume browsers support `<audio>` element consistently.  
+    *Mitigation:* Test in Chrome, Firefox, Edge. Provide fallback message.
+  - Assume I have the required skill and aptitude to  take on the project as scoped.
+
+- **Management Risks**
+  - Scope creep (adding features beyond two pages).  
+    *Mitigation:* Enforce acceptance criteria defined in Scope Statement.  
+  - Time conflicts with other coursework.  
+    *Mitigation:* Weekly checkpoints and early start.
+  - Failure to meet all required Documentation and Rubric Requiremtn
+    *Mitigation:* Create detailed deliverables checklist and verify all submission were accepted online.
+
+- **External Risks**
+  - Reliance on Suno AI for demo songs; service may change/limit features.  
+    *Mitigation:* Store generated audio locally in repo assets.  
+  - Peer feedback availability (Alex Dominicelli).  
+    *Mitigation:* Proceed with self-QA if peer not available.
+
 - **Scope creep:** Adding features beyond two pages. *Mitigation:* enforce acceptance criteria.
 - **Deployment errors:** GitHub Pages misconfig. *Mitigation:* test early with LiveServer + GitHub Pages.
 - **Time conflicts:** Other coursework deadlines. *Mitigation:* weekly task checkpoints.
