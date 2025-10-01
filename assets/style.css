@@ -1,3 +1,7 @@
+/* style.css
+   Stylesheet for Both Pages of This is your Song website */
+
+/*This page intentionlally has exstensive comments to explain the CSS rules. It is a class project and will be used for future refentce when creating other pages*/
 /* ===========================================================
    GLOBAL STYLES
    These rules apply to every page. They set the site colors,
@@ -5,301 +9,421 @@
    link behavior, and reusable classes you can apply anywhere.
    =========================================================== */
 
-/* All theme colors live here so one change updates the entire site. */
+/* 
+THEME COLOR VARIABLES
+This is the :root selector, which defines global CSS custom properties (variables). 
+These values can be reused across the stylesheet to ensure consistent theming and simplify updates.
+
+Each variable represents a visual role in the design:
+--amber: Button background color
+--bg:    Page background color
+--card:  Background for card-style containers
+--gold:  Accent color for borders and headers
+--text:  Default body text color
+
+By changing a value here, the entire site updates accordingly — a scalable, maintainable approach to theming.
+*/
 :root {
-  --amber: #ff9a1f;   /* button fill */
-  --bg:    #0d1117;   /* page background */
-  --card:  #5c1a14;   /* card background */
-  --gold:  #ffd56a;   /* borders / headings */
-  --text:  #ffffff;   /* default text */
+    --amber: #ff9a1f;
+    --bg: #0d1117;
+    --card: #5c1a14;
+    --gold: #ffd56a;
+    --text: #ffffff;
 }
 
-/* The page is a three-row grid: header, main content, and footer.
-   This keeps both pages framed the same way top-to-bottom. */
-html, body { height: 100%; }
+/* 
+BASE PAGE LAYOUT GRID
+Applies a 3-row grid to the entire body of the page:
+- Row 1: <header> (auto height)
+- Row 2: <main> (grows to fill available space)
+- Row 3: <footer> (auto height)
+
+This grid ensures consistent structure and vertical alignment on all pages.
+Also sets the background color, base font, and line height for readability.
+*/
+html,
 body {
-  margin: 0;
-  min-height: 100vh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  background: var(--bg);
-  color: var(--text);
-  font-family: Arial, sans-serif;
-  line-height: 1.55;
+    height: 100%;
 }
 
-/* Headings share a consistent look so titles feel related across pages. */
-h1, h2, h3 {
-  color: var(--gold);
-  font-family: Georgia, serif;
-  margin: 0;    /* kills top and bottom margin */
-  padding: 0;   /* ensures no padding is added by browser */
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    line-height: 1.55;
 }
 
+/* 
+GLOBAL HEADING STYLES
+Ensures all headings use Georgia for contrast, and removes default spacing.
 
-header h1, header h2 { text-align: center; }
-header h2 { font-size: 1.1rem; font-weight: normal; }
+Used for <h1>, <h2>, and <h3> across all pages, to maintain brand consistency.
+*/
+h1,
+h2,
+h3 {
+    color: var(--gold);
+    font-family: Georgia, serif;
+    margin: 0;
+    padding: 0;
+}
 
-/* Links are amber and underline on hover so interactive text is obvious. */
-a { color: #ffb347; text-decoration: none; }
-a:hover { text-decoration: underline; }
+/* 
+HEADER ALIGNMENT
+Centers the <h1> and <h2> inside header elements for symmetry and readability.
+Also softens <h2> appearance with smaller size and lighter weight.
+*/
+header h1,
+header h2 {
+    text-align: center;
+}
 
-/* -----------------------------------------------------------
-   GLOBAL CLASSES (alphabetized)
-   The classes below can be used on any page.
-   ----------------------------------------------------------- */
+header h2 {
+    font-size: 1.1rem;
+    font-weight: normal;
+}
 
-/* .btn is a clickable button box. It is 1 inch tall, 20% wide
-   (so five would fit in a row), and centers its label both
-   horizontally and vertically. */
+/* 
+LINK STYLING
+Makes anchor links amber for visibility and underlines them on hover to indicate interactivity.
+*/
+a {
+    color: #ffb347;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ===========================================================
+   GLOBAL UTILITY CLASSES
+   These classes can be reused on any page.
+   =========================================================== */
+
+/* 
+.btn — UNIVERSAL BUTTON STYLE
+Creates a stylized button using a <a> tag or any other inline element.
+
+- Fixed height (56px, ~1 inch)
+- Centered label using flexbox
+- Uses the --amber and --gold theme colors
+- Applies padding and border radius for visual polish
+
+Designed to visually stand out while remaining flexible in layout.
+*/
 .btn {
-  background: var(--amber);
-  border: 2px solid var(--gold);
-  border-radius: 8px;
-  box-sizing: border-box;
-  color: #000;
-  display: flex;
-  justify-content: center;          /* center text horizontally  */
-  align-items: center;               /* center text vertically    */
-  font-weight: bold;
-  height: 56px;
-  padding: 0 .5rem;                  /* side breathing room for long labels */
-  text-align: center;                /* center multi-line labels */
-  text-decoration: none;
-  width: 20%;
+    background: var(--amber);
+    border: 2px solid var(--gold);
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    height: 56px;
+    padding: 0 .5rem;
+    text-align: center;
+    text-decoration: none;
+    width: 20%;
 }
-/* Hover brightens the fill to signal interactivity. */
-.btn:hover { background: #ffb347; }
 
-/* -----------------------------------------------------------
-   .button-row arranges a horizontal row of evenly sized buttons.
-   Buttons share space across the row and wrap to a new line
-   if the screen is too narrow.
+/* 
+.btn HOVER EFFECT
+Brightens the button fill when hovered to give feedback to the user.
+*/
+.btn:hover {
+    background: #ffb347;
+}
 
-   The row remains centered regardless of how many buttons are
-   present. No additional spacing is placed between buttons or
-   rows, so the layout stays as compact as possible vertically.
-   ----------------------------------------------------------- */
+/* 
+.button-row — FLEX CONTAINER FOR BUTTONS
+Horizontally aligns a row of buttons using flexbox. 
+Buttons automatically wrap to a new line if the screen is too narrow.
+
+- No vertical spacing between lines
+- Horizontal gap between buttons
+- Keeps layout compact and centered
+*/
 .button-row {
-  display: flex;              /* Arrange buttons in a row */
-  flex-wrap: wrap;            /* Allow buttons to wrap onto new lines */
-  justify-content: center;    /* Center the buttons horizontally */
-  gap: 0 12px;                /* Horizontal spacing only — no vertical gap */
-  padding: 0.5rem;            /* 8px padding around the row */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0 12px;
+    padding: 0.5rem;
 }
 
-/* -----------------------------------------------------------
-   .btn defines the size and alignment of each button inside
-   a .button-row.
+/* 
+.button-row .btn — BUTTON RESIZING RULES
+Applies sizing rules for buttons inside .button-row.
 
-   Each button shares available row space evenly and will
-   automatically resize to fit the screen. Buttons prefer to
-   be 200px wide but can grow or shrink as needed. A minimum
-   width ensures buttons remain usable on very small screens.
-
-   All buttons have a fixed height of 1 inch and center their
-   text for clean alignment.
-   ----------------------------------------------------------- */
+- Prevents buttons from stretching
+- Ensures they remain usable on smaller screens
+- Centers button text for consistency
+*/
 .button-row .btn {
-  flex: 0 1 auto;          /* Don’t grow; allow shrinking if needed */
-  min-width: 120px;           /* Prevent buttons from becoming too narrow */
-  text-align: center;         /* Center button label text */
+    flex: 0 1 auto;
+    min-width: 120px;
+    text-align: center;
 }
 
+/* 
+.card — FRAMED CONTAINER
+Used for header, main content, and footer containers.
+Gives each section a boxed appearance with padding, border, and radius.
+
+- Uses max width of 92% viewport or 1920px for readability
+- Adds spacing between elements vertically
+*/
 .card {
-  background: var(--card);
-  border: 2px solid var(--gold);
-  border-radius: 12px;
-  color: var(--text);
-  display: flex;
-  flex-direction: column;
-   gap: 0 12px;             /* No vertical spacing; 12px horizontal gap */
-  margin: 8px auto;                 /* space between cards */
-  padding: 8px;                     /* space between a card’s edge and its content */
-  width: min(1920px, 92vw);           /* page stays readable on small screens */
+    background: var(--card);
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    gap: 0 12px;
+    margin: 8px auto;
+    padding: 8px;
+    width: min(1920px, 92vw);
 }
 
-/* Media inside cards should never overflow the card’s width.
-   These rules keep audio/video/iframes contained. */
+/* 
+Ensures media like audio, video, and iframes don't overflow the .card container.
+Maintains clean layout and containment.
+*/
 .card audio,
 .card video,
 .card iframe {
-  max-width: 100%;
-  display: block;
+    max-width: 100%;
+    display: block;
 }
 
-/* The text-alignment family aligns text inside any element.
-   The word after “text-” is the alignment you’ll get. */
-.text-center  { text-align: center; }
-.text-justify { text-align: justify; }
-.text-left    { text-align: left; }
-.text-right   { text-align: right; }
+/* 
+TEXT ALIGNMENT UTILITIES
+Utility classes for aligning text without affecting layout:
+- text-center, text-left, etc.
+- Reusable across any element or container
+*/
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
 
 /* ===========================================================
    INDEX PAGE STYLES
-   The classes below are used only on index.html.
+   These classes are used only on index.html
    =========================================================== */
 
-/* .jingle-box presents the homepage jingle in a distinct black box
-   so the audio player is easy to find. */
+/* 
+.jingle-box — AUDIO PLAYER CONTAINER
+Visually separates the audio player from the body text.
+
+- Black background with gold border to draw attention
+- Centered content and internal padding for clarity
+*/
 .jingle-box {
-  background: #000;
-  border: 2px solid var(--gold);
-  border-radius: 8px;
-  display: inline-block;
-  margin: 12px auto;
-  padding: 12px 20px;
-  text-align: center;
+    background: #000;
+    border: 2px solid var(--gold);
+    border-radius: 8px;
+    display: inline-block;
+    margin: 12px auto;
+    padding: 12px 20px;
+    text-align: center;
 }
-/* The link/text inside the jingle box uses gold to stand out from body text. */
+
+/* 
+.jingle-box a — STYLIZED AUDIO TEXT LINK
+Applies standout style to any text links placed in the jingle box.
+*/
 .jingle-box a {
-  color: var(--gold);
-  display: block;
-  font-size: 1.05rem;
-  font-weight: bold;
-  text-decoration: none;
+    color: var(--gold);
+    display: block;
+    font-size: 1.05rem;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 /* ===========================================================
    CATALOG PAGE STYLES
-   The classes below are used only on catalog.html. They style
-   the explanatory note box and the four-up song grid (TIM tiles).
+   Used only on catalog.html
    =========================================================== */
 
-/* .note-box is the slim explanatory paragraph card that sits under
-   the Catalog title. It is compact on purpose so the songs remain visible. */
+/* 
+.note-box — EXPLANATORY TEXT BLOCK
+Compact text container placed below catalog heading.
+
+- Black background, gold text
+- Styled to match jingle-box but with smaller text
+*/
 .note-box {
-  background: #000;
-  border: 2px solid var(--gold);
-  border-radius: 8px;
-  color: var(--gold);
-  font-size: 0.95rem;
-  padding: 8px 12px;
-  text-align: center;
+    background: #000;
+    border: 2px solid var(--gold);
+    border-radius: 8px;
+    color: var(--gold);
+    font-size: 0.95rem;
+    padding: 8px 12px;
+    text-align: center;
 }
-.note-box p { margin: 4px 0; }       /* small gaps between paragraphs */
 
-/* .grid-4col is the container for the four songs. It always places
-   four fixed-width tiles across; new rows are created automatically
-   if more tiles are added. */
+.note-box p {
+    margin: 4px 0;
+}
+
+/* 
+.grid-4col — SONG TILE GRID
+Grid container for catalog songs. Automatically fits four tiles per row on wide screens, and wraps as needed.
+
+- Centered, max 800px width
+- Flexible column sizing using minmax
+*/
 .grid-4col {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 12px;
-  max-width: 800px;         /* constrains total width */
-  margin: 0 auto;           /* centers the whole grid block */
-  padding: 0 12px;          /* optional: prevents hugging screen edge on small screens */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 12px;
 }
 
+/* 
+.TIM — SONG TILE
+Each tile includes title, image, and audio player stacked vertically.
 
-/* .TIM is a “Title / Image / Music player” song stamp.
-   Each tile is 2 inches wide by 3 inches tall, stacked in three rows:
-     - Title row is 1 inch tall
-     - Image row is 1 inch tall
-     - Player row is 1 inch tall
-   Using the same dimensions for every tile keeps captions, images,
-   and players aligned across the row. */
+- Consistent 3-inch height and 2-inch width
+- Keeps layout uniform across catalog
+*/
 .TIM {
-  background: transparent;
-  border: 0;
-  display: grid;
-  grid-template-rows: 1in 1in 1in;    /* title / image / player */
-  height: 3in;                        /* total tile height */
-  justify-items: center;
-  padding: 0;
-  width: 2in;                         /* total tile width  */
+    background: transparent;
+    border: 0;
+    display: grid;
+    grid-template-rows: 1in 1in 1in;
+    height: 3in;
+    justify-items: center;
+    padding: 0;
+    width: 2in;
 }
 
-/* The title area fills the tile’s width and centers the caption text. */
+/* 
+.tile-title — TILE HEADER TEXT
+Centers and styles the title of each song tile.
+*/
 .TIM .tile-title {
-  width: 100%;
-  display: flex; align-items: center; justify-content: center;
-  text-align: center;
-  font-size: .9rem;
-  font-weight: 600;
-  line-height: 1.15;
-  margin: 0; padding: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: .9rem;
+    font-weight: 600;
+    line-height: 1.15;
+    margin: 0;
+    padding: 0;
 }
 
-/* The image area is 1 inch tall and centers a 1×1 inch artwork square. */
+/* 
+.tile-image — TILE IMAGE BLOCK
+Centers and contains a 1x1in image inside the tile.
+*/
 .TIM .tile-image {
-  width: 100%;
-  height: 1in;
-  display: flex; align-items: center; justify-content: center;
-  margin: 0; padding: 0;
+    width: 100%;
+    height: 1in;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
 }
+
 .TIM .tile-image img {
-  width: 1in;                         /* artwork width */
-  height: 1in;                        /* artwork height */
-  object-fit: contain;
-  display: block;
+    width: 1in;
+    height: 1in;
+    object-fit: contain;
+    display: block;
 }
 
-/* The player area fills the tile’s width and uses a concrete height
-   so the native audio controls do not clip or spill. */
+/* 
+.tile-player — TILE AUDIO PLAYER
+Contains and sizes the native audio player.
+Ensures consistency in appearance and prevents overflow.
+*/
 .TIM .tile-player {
-  width: 100%;
-  display: flex; align-items: center; justify-content: center;
-  margin: 0; padding: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
 }
+
 .TIM .tile-player audio {
-  width: 100%;
-  height: 40px;                       /* safe, compact control height */
-  display: block;
+    width: 100%;
+    height: 40px;
+    display: block;
 }
+
 /* ===========================================================
-   PDF PAGE STYLES
-   The classes below are used only on order-form.pdf. They style
-   the form fields and instructions. And control the animations.
-  =========================================================== */
+   PDF PREVIEW STYLES
+   Applies to the iframe preview of the sample order form.
+   =========================================================== */
 
 @keyframes zoomIn {
-  from {
-    transform: scale(0.85);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+    from {
+        transform: scale(0.85);
+        opacity: 0;
+    }
 
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
+
 .sample-order-box {
-  display: none;
+    display: none;
 }
 
-/* When user clicks "Sample Order" button (href="#sample-order") */
-#sample-order:target + .sample-order-box {
-  display: block;
-  animation: zoomIn 0.25s ease-out forwards;
+/* 
+Reveals the PDF preview box when the user clicks the anchor link.
+Triggers a zoom-in animation on display.
+*/
+#sample-order:target+.sample-order-box {
+    display: block;
+    animation: zoomIn 0.25s ease-out forwards;
 }
 
-@keyframes zoomIn {
-  from {
-    transform: scale(0.95);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
+/* ===========================================================
+   RESPONSIVE FIXES FOR MOBILE DEVICES (≤ 600px)
+   =========================================================== */
 
-/* -----------------------------------------------------------
-   Responsive fixes for mobile devices (≤ 600px)
-   ----------------------------------------------------------- */
 @media (max-width: 600px) {
-  .btn {
-    width: 100%;              /* Let buttons span full width on small screens */
-    min-width: unset;         /* Cancel min-width so they don't overflow */
-    max-width: 320px;         /* Keeps them a reasonable width */
-    margin: 0 auto 8px;       /* Center horizontally and add bottom spacing */
-  }
+    .btn {
+        width: 100%;
+        min-width: unset;
+        max-width: 320px;
+        margin: 0 auto 8px;
+    }
 
-  .button-row {
-    flex-direction: column;   /* Stack buttons vertically */
-    align-items: stretch;
-    padding-left: 1rem;       /* Add side padding */
-    padding-right: 1rem;
-  }
+    .button-row {
+        flex-direction: column;
+        align-items: stretch;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 }
