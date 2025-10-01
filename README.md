@@ -49,8 +49,8 @@ front-end could support a unique service idea using nothing but HTML and CSS.
 ---
 
 ## Live Site
+- Live demo: https://jasytionline.github.io/this-is-your-song/
 
-https://jasytionline.github.io/3301-cmpa-p3/
 
 ---
 
