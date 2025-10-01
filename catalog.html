@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>This Is Your Song — Catalog</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body class="catalog-page">
+
+  <!-- This is the catalog header card.
+       It presents the page title and a short subtitle. -->
+  <header class="card">
+    <h1>Catalog</h1>
+    <h2>Pick a style to preview</h2>
+  </header>
+
+  <!-- This is the explanatory note box that sits under the title.
+       It explains what visitors will hear and how to use the page. -->
+  <section class="card note-box">
+    <p>
+      This song began as a request from one of my karaoke singers who loved the music of Patsy Cline, Dolly Parton,
+      Tammy Wynette, Connie Smith, and Debby Boone. She asked me to bring her favorites together, not as a playlist, but
+      as one piece she could perform as if it were her own. I took the lyrics she loved, analyzed their themes, and
+      combined them with my own original lines and transitions to create a single, continuous narrative. Instead of
+      sounding like fragments stitched side by side, the result flows through a full emotional arc of promise, turmoil,
+      reconciliation, and hope. The listener doesn’t need to know the source songs at all — it plays like a cohesive,
+      original composition that stands on its own.
+    </p>
+    <p>
+      Below you’ll find four buttons, each one linked to a different version of this same song. The lyrics never change,
+      but the delivery does — and that’s the whole point. One version is arranged in a traditional country-western
+      style, another is shaped into a heartfelt country ballad, the third leans into a nostalgic country-western feel,
+      and the fourth carries a more melancholy tone. By clicking through and listening to each, you’ll hear how the
+      exact same words can take on entirely different emotions depending on the genre and arrangement. This shows you
+      the power of what I do: I don’t just write or arrange songs, I help shape them to match your story, in your tone,
+      and in your voice. When you hear the differences between these four versions, you’ll understand how flexible and
+      personal this process really is. So go ahead — click on the buttons below, listen to the different versions, and
+      imagine how your own story could be told in the style that fits you best. When you’re ready, place your order and
+      let me create a one-of-a-kind song that is truly yours.
+    </p>
+  </section>
+
+  <!-- This is the songs card.
+       It contains a four-column grid of TIM tiles (Title, Image, Music). -->
+  <main class="card">
+    <div class="grid-4col">
+
+      <!-- TIM #1: traditional -->
+      <div class="TIM">
+        <div class="tile-title">A traditional country &amp; western song</div>
+        <div class="tile-image">
+          <img src="assets/song1.png" alt="Traditional icon">
+        </div>
+        <div class="tile-player">
+          <audio preload="none" controls>
+            <source src="assets/song1-traditional.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+      <!-- TIM #2: melancholy -->
+      <div class="TIM">
+        <div class="tile-title">A slow, melancholy ballad</div>
+        <div class="tile-image">
+          <img src="assets/song2.png" alt="Melancholy icon">
+        </div>
+        <div class="tile-player">
+          <audio preload="none" controls>
+            <source src="assets/song2.melancholy.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+      <!-- TIM #3: nostalgic -->
+      <div class="TIM">
+        <div class="tile-title">A nostalgic tune full of memories</div>
+        <div class="tile-image">
+          <img src="assets/song3.png" alt="Nostalgic icon">
+        </div>
+        <div class="tile-player">
+          <audio preload="none" controls>
+            <source src="assets/song3-nostalgic.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+      <!-- TIM #4: ballad -->
+      <div class="TIM">
+        <div class="tile-title">A heartfelt storytelling ballad</div>
+        <div class="tile-image">
+          <img src="assets/song4.png" alt="Ballad icon">
+        </div>
+        <div class="tile-player">
+          <audio preload="none" controls>
+            <source src="assets/song4-ballad.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+<!-- This is the footer card.
+     It contains three buttons for order actions and navigation. -->
+<footer class="card">
+  <div class="button-row">
+ <a class="btn" href="mailto:jasytionline@gmail.com?subject=This Is Your Song — New Order&body=Please fill in whatever you can. These questions are just a guide.
+1. Who is the subject of your song? 2. What type of song is this? 3. What is the mood or emotional tone? 4. When did this happen? 5. Is this about a specific event or occasion? 6. Are there other people you want mentioned? 7. Tell me about the subject (age, relationship, traits): 8. Tell me about a time when they made you feel something special:. 9. What happened in your story? 10. Okay to take artistic liberties? 11. Want to help write lyrics? 12. Anything else you'd like me to know?#: ">
+  Start Your Custom Song Request
+
+    <a class="btn" href="#sample-order">Sample Order</a>
+    <a class="btn" href="index.html">Back to Home</a>
+  </div>
+
+  <!-- Anchor target and inline PDF preview -->
+  <a id="sample-order"></a>
+  <section class="card sample-order-box">
+    <h3 class="text-center">Sample Order Form (PDF Preview)</h3>
+    <iframe src="assets/order-form.pdf" width="660" height="850" style="border: none;"></iframe>
+  </section>
+</footer>
+
+
+</body>
+
+</html>
